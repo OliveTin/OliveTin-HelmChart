@@ -3,6 +3,27 @@ entries:
   olivetin:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-01-25T10:08:24.189303131Z"
+    description: A OliveTin Helm chart for Kubernetes
+    digest: b2e16341aac50722ee011d1e6e9db032ea69f9382b653acd22688e9a8d0506b9
+    home: https://www.olivetin.app
+    icon: https://www.olivetin.app/resources/images/logo.png
+    keywords:
+    - olivetin
+    - shell
+    - commands
+    maintainers:
+    - name: OliveTin contributors
+      url: https://github.com/OliveTin/OliveTin
+    name: olivetin
+    sources:
+    - https://github.com/OliveTin/OliveTin
+    type: application
+    urls:
+    - https://github.com/OliveTin/OliveTin-HelmChart/releases/download/olivetin-0.2.4/olivetin-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-01-25T09:43:16.292989779Z"
     description: A OliveTin Helm chart for Kubernetes
     digest: aa113ce42ecada4b615b5760aeb10838617aef8580744988b913ef77dadbb846
@@ -112,4 +133,4 @@ entries:
     urls:
     - https://github.com/OliveTin/OliveTin-HelmChart/releases/download/olivetin-0.1.0/olivetin-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-25T09:43:16.29301948Z"
+generated: "2022-01-25T10:08:24.189340707Z"

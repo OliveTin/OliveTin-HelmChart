@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
     name: olivetin
-spec: 
+spec:
   replicas: 1
-  selector: 
+  selector:
     matchLabels:
       app: olivetin
   template:
@@ -12,11 +12,11 @@ spec:
       labels:
         app: olivetin
     spec:
-      containers: 
+      containers:
         - name: olivetin
           image: docker.io/jamesread/olivetin:latest
           ports:
-            - containerPort: 1337
+            - containerPort: {{ .Values.ingress.servicePort }}
           volumeMounts:
             - name: olivetin-config
               mountPath: "/config"
@@ -24,14 +24,13 @@ spec:
 
           livenessProbe:
             exec:
-              command: 
-                - curl 
-                - localhost:1337
+              command:
+                - curl
+                - localhost:{{ .Values.ingress.servicePort }}
             initialDelaySeconds: 5
             periodSeconds: 30
 
       volumes:
         - name: olivetin-config
-          configMap: 
+          configMap:
             name: olivetin-config
-

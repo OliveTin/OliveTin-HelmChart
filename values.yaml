@@ -1,8 +1,14 @@
 ---
+config: |-
+  actions:
+    - title: "Hello world!"
+      shell: echo 'Hello World!'
+
+containerVersion: latest
+
 ingress:
   enabled: true
   host: olivetin.example.com
+  servicePort: 1337
 
-persisentVolume: true
-
-containerVersion: latest
+persistentVolume: true

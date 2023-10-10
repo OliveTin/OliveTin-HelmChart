@@ -4,9 +4,9 @@ metadata:
   name: olivetin
 spec:
   ports:
-  - port: 1337
+  - port: {{ .Values.ingress.servicePort }}
     protocol: TCP
-    targetPort: 1337
+    targetPort: {{ .Values.ingress.servicePort }}
   selector:
     app: olivetin
   type: ClusterIP

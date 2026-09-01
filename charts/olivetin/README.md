@@ -6,6 +6,8 @@
 
 Give safe and simple access to predefined shell commands from a web interface.
 
+Chart versions **v1–v3** ship OliveTin **2k** (calendar versions like `2025.10.30`). Chart **v4+** ships OliveTin **3k** (`3000.x.x`).
+
 [Instructions for using the OliveTin Helm chart](https://docs.olivetin.app/install/helm.html)
 
 ## Quickstart
@@ -57,6 +59,12 @@ ingress:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+    # OliveTin 3k uses a long-lived websocket at
+    # /api/olivetin.api.v1.OliveTinApiService/EventStream
+    # The chart sets nginx ingress proxy timeouts to 600s when Ingress is
+    # enabled (nginx defaults to 60s). Override these keys if needed:
+    # nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
   hosts:
     - host: chart-example.local
       paths:
@@ -79,17 +87,23 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# Extra environment variables
+extraEnv: []
+
+# Extra environment variables from secrets or configmaps
+extraEnvFrom: []
+
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   initialDelaySeconds: 5
   periodSeconds: 20
   httpGet:
-    path: /api/readyz
+    path: /readyz
     port: http
 readinessProbe:
   periodSeconds: 20
   httpGet:
-    path: /api/readyz
+    path: /readyz
     port: http
 
 # Additional volumes on the output Deployment definition.
@@ -104,6 +118,11 @@ extraVolumeMounts: []
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
+
+initContainers: []
+# - name: do-something-at-startup
+#   image: busybox
+#   command: ['sh', '-c', 'echo "Doing something at startup"']
 
 nodeSelector: {}
 

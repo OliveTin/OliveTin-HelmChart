@@ -5,7 +5,15 @@ metadata:
   name: {{ include "olivetin.fullname" . }}
   labels:
     {{- include "olivetin.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+  {{- $annotations := deepCopy (.Values.ingress.annotations | default dict) }}
+  {{- /* OliveTin 3k EventStream websocket; nginx ingress idle timeout defaults to 60s. */}}
+  {{- if not (hasKey $annotations "nginx.ingress.kubernetes.io/proxy-read-timeout") }}
+  {{- $_ := set $annotations "nginx.ingress.kubernetes.io/proxy-read-timeout" "600" }}
+  {{- end }}
+  {{- if not (hasKey $annotations "nginx.ingress.kubernetes.io/proxy-send-timeout") }}
+  {{- $_ := set $annotations "nginx.ingress.kubernetes.io/proxy-send-timeout" "600" }}
+  {{- end }}
+  {{- with $annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}

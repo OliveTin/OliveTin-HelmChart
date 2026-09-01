@@ -39,6 +39,12 @@ ingress:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+    # OliveTin 3k uses a long-lived websocket at
+    # /api/olivetin.api.v1.OliveTinApiService/EventStream
+    # The chart sets nginx ingress proxy timeouts to 600s when Ingress is
+    # enabled (nginx defaults to 60s). Override these keys if needed:
+    # nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
   hosts:
     - host: chart-example.local
       paths:

@@ -6,6 +6,8 @@
 
 Give safe and simple access to predefined shell commands from a web interface.
 
+Chart versions **v1–v3** ship OliveTin **2k** (calendar versions like `2025.10.30`). Chart **v4+** ships OliveTin **3k** (`3000.x.x`).
+
 [Instructions for using the OliveTin Helm chart](https://docs.olivetin.app/install/helm.html)
 
 ## Quickstart

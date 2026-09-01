@@ -6,6 +6,31 @@ entries:
         fingerprint: AF5833720407770CEF18C82A96A0784C72FD05AE
         url: https://www.olivetin.app/OliveTin-HelmChart/pubkey-2024-04-14.asc
     apiVersion: v2
+    appVersion: 3000.19.0
+    created: "2026-09-01T20:45:40.194683363Z"
+    description: A OliveTin Helm chart for Kubernetes
+    digest: 28347257abbdf27772fa7f756fdd9a195aa9eff11d833ac452245a0c42ca16dc
+    home: https://www.olivetin.app
+    icon: https://www.olivetin.app/resources/images/logo.png
+    keywords:
+    - olivetin
+    - shell
+    - commands
+    maintainers:
+    - name: OliveTin contributors
+      url: https://github.com/OliveTin/OliveTin
+    name: olivetin
+    sources:
+    - https://github.com/OliveTin/OliveTin
+    type: application
+    urls:
+    - https://github.com/OliveTin/OliveTin-HelmChart/releases/download/olivetin-4.0.0/olivetin-4.0.0.tgz
+    version: 4.0.0
+  - annotations:
+      artifacthub.io/signKey: |
+        fingerprint: AF5833720407770CEF18C82A96A0784C72FD05AE
+        url: https://www.olivetin.app/OliveTin-HelmChart/pubkey-2024-04-14.asc
+    apiVersion: v2
     appVersion: 2025.10.30
     created: "2025-10-30T16:34:53.853869676Z"
     description: A OliveTin Helm chart for Kubernetes
@@ -330,4 +355,4 @@ entries:
     urls:
     - https://github.com/OliveTin/OliveTin-HelmChart/releases/download/olivetin-0.1.0/olivetin-0.1.0.tgz
     version: 0.1.0
-generated: "2025-10-30T16:34:53.85405339Z"
+generated: "2026-09-01T20:45:40.194827978Z"
